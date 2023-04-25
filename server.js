@@ -13,40 +13,40 @@ const stripe = require("stripe")(api_key);
 // ------------ Imports & necessary things here ------------
 
 // Setting up the static folder:
-// app.use(express.static(resolve(__dirname, "./client")));
-app.use(express.static(resolve(__dirname, process.env.STATIC_DIR)));
+app.use(express.static(resolve(__dirname, "./client")));
+//app.use(express.static(resolve(__dirname, process.env.STATIC_DIR)));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  const path = resolve(process.env.STATIC_DIR + "/index.html");
+  const path = resolve(./client + "/index.html");
   res.sendFile(path);
 });
 
 // creating a route for success page:
 app.get("/success", (req, res) => {
-  const path = resolve(process.env.STATIC_DIR + "/success.html");
+  const path = resolve(./client + "/success.html");
   res.sendFile(path);
 });
 
 // creating a route for cancel page:
 app.get("/cancel", (req, res) => {
-  const path = resolve(process.env.STATIC_DIR + "/cancel.html");
+  const path = resolve(./client + "/cancel.html");
   res.sendFile(path);
 });
 
 // Workshop page routes:
 app.get("/workshop1", (req, res) => {
-  const path = resolve(process.env.STATIC_DIR + "/workshops/workshop1.html");
+  const path = resolve(./client + "/workshops/workshop1.html");
   res.sendFile(path);
 });
 app.get("/workshop2", (req, res) => {
-  const path = resolve(process.env.STATIC_DIR + "/workshops/workshop2.html");
+  const path = resolve(./client + "/workshops/workshop2.html");
   res.sendFile(path);
 });
 app.get("/workshop3", (req, res) => {
-  const path = resolve(process.env.STATIC_DIR + "/workshops/workshop3.html");
+  const path = resolve(./client + "/workshops/workshop3.html");
   res.sendFile(path);
 });
 
